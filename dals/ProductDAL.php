@@ -4,11 +4,11 @@
   class ProductDAL extends DB implements  ICRUD{
     public function __construct(){
         parent::__construct();//chạy các lệnh trong constructor của cha 
-        $this->setTableName("product");
+        $this->setTableName("products");
     }
 
     public function getList(){
-       $sql = "SELECT *,$this->tableName.name as product_name,$this->tableName.id as product_id,category.name as category_name FROM $this->tableName LEFT JOIN category ON $this->table.category_id = category.id";
+       $sql = "SELECT *,products.name as product_name,products.id as product_id,category.name as category_name FROM $this->tableName LEFT JOIN category ON products.category_id = category.id";
        $rs = $this->pdo->query($sql);  
        return $rs->fetchAll(PDO::FETCH_OBJ);   
     }
@@ -21,7 +21,7 @@
     }//R - one
 
     public function addOne($data){
-        $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,content,price,image,category_id) VALUES(:name,:content,:price,:image,:category_name)");
+        $prp = $this->pdo->prepare("INSERT INTO $this->tableName(name,content,price,image,category_id) VALUES(:name,:content,:price,:image,:category_id)");
         $prp->bindParam(':name',$data['name']);
         $prp->bindParam(':content',$data['content']);
         $prp->bindParam(':price',$data['price']);
