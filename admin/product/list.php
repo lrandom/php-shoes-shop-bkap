@@ -30,6 +30,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Name</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -42,6 +43,7 @@
                         </td>
                         <td><?php echo $r->name; ?></td>
                         <td><?php echo $r->price; ?></td>
+                        <td><?php echo $r->category_name; ?></td>
                         <td>
                             <a class="btn btn-warning" href="edit.php?id=<?php echo $r->id; ?>">Edit</a>
                             <a onclick="return confirm('Are you sure you want to delete ?')" class="btn btn-danger" href="?action=delete&id=<?php echo $r->id; ?>">Delete</a>
