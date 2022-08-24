@@ -91,6 +91,7 @@
         </table>
         <?php
     } ?>
+    <a href="make-order.php" class="bg-black text-white p-2 rounded float-right">Checkout</a>
     </div>
      
     <style>
